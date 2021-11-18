@@ -1,0 +1,236 @@
+*, ::after, ::before{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+:root{
+    --anton:'Anton', sans-serif;
+    --source: 'Source Sans Pro', sans-serif;
+    --menu:34px;
+    --titre:115px;
+    --nom: 27px;
+    --text:18px;
+}
+body{
+    background:url(../Images/hero.jpg) no-repeat ;
+    background-size: cover;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+figure{
+    margin:0;
+}
+header{
+background-color: grey ;
+    display:flex;
+  align-items: center;
+    justify-content: space-between;
+    height: 65px;
+}
+header .navbar-brand{
+    padding-left:15px;
+
+}
+header .navbar{
+    display: flex; 
+    gap:35px;
+    align-items: center;
+}
+
+header .navbar> ul{
+    display:flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    list-style: none;
+}
+.nav-link{
+        padding: 20px;
+        
+    }
+    .nav-link>a{
+    text-decoration: none;
+    color:white;
+    font-size: var(--menu);
+    font-family: var(--anton);
+
+}
+.burger{
+    display:none;
+    width: 42px;
+    height: 24px;
+    
+    cursor: pointer;
+    position: relative;
+    margin-right: 20px;
+    background: transparent;
+    border:none;
+
+}
+.burger>span{
+    background:white;
+    width: 100%;
+    height: 4px;
+    display:block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    transition: all .5s ease-in-out;
+}
+.burger>span::before, .burger>span::after{
+    content:"";
+    width: 100%;
+    height: 4px;
+    background:white;
+    position: absolute;
+    right: 0;
+    border-radius: 3px;
+    transition: all .5s ease-in-out;
+    transform: translateY(-10px)
+}
+.burger>span::after{
+    transform: translateY(10px)
+}
+.search{
+    margin-right: 10px;
+    position: relative;
+}
+.search>input{
+  
+    text-align: center;
+   border-radius: 5px;
+   outline: none;
+  
+}
+.search>img{
+    width: 20px;
+    position: absolute;
+    left:15px;
+   
+}
+main{
+    width: 65%;
+    margin: auto;
+}
+.title{
+
+    position: relative;
+}
+.title>h1{
+    font-family: var(--anton);
+    color: white;
+    text-align: center;
+    font-size: var(--titre);
+    margin-top: 15px;
+}
+.title>p{
+    color:rgba(8, 8, 8, .3);
+    position:absolute;
+    top:39%;
+    left:33%;
+    font-size: var(--titre);
+    text-transform: uppercase;
+    font-family: var(--menu);
+    z-index: -10;
+  
+}
+.content{
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns:repeat(4, 1fr) ;
+    gap:20px;
+}
+.content> article{
+    background: white;
+    border-radius: 15px;
+}
+.content article figure>img{
+    border-radius: 15px 15px 0 0;
+}
+.content article>h2{
+    text-align: center;
+    margin-top: 5px;
+    font-size: var(--nom);
+    font-family: var(--source);
+}
+.content article>p{
+    padding: 15px;
+    font-family: var(--source);
+    font-size: var(--text);
+}
+footer{
+    background-color: rgba(128, 128, 128, .5);
+    color: white;
+    font-size: var(--text);
+    font-family:var(--anton);
+ justify-content: center;
+    display: flex;
+    align-items: center;
+    gap:25px;
+    height: 50px;
+    width: 100%;
+    position:fixed;
+    bottom: 0;
+   
+}
+@media (max-width:768px) and (min-width:480px){
+    header{
+        position: relative;
+    }
+    .search{
+        position: absolute;
+        left:150px;
+    }
+    .burger{
+        display: block;
+        position: absolute;
+        right: 15px;
+    }
+    header .navbar> ul{
+      
+        flex-direction: column;
+          margin: 0;
+          padding: 0;
+          position: absolute; 
+          top:65px; 
+          left:0;
+          right: 0; 
+          background: grey; 
+        align-items: center;
+      display: none;
+    }
+    .show-nav .navbar> ul{
+        display:flex;
+        z-index:100;
+    }
+    .show-nav .burger>span{
+        background-color: transparent;
+    }
+    .show-nav .burger>span::before{
+        transform:rotate(45deg);
+    }
+    .show-nav .burger>span::after{
+        transform:rotate(-45deg);
+    }
+
+
+    .title>p{
+        left: 11%;
+        top: 38%;
+    }
+    .content{
+   margin-top: 25%;
+        grid-template-columns:repeat(2, 1fr) ;
+        gap:20px;
+    }
+    main{
+        margin-bottom: 5rem;
+    }
+    footer{
+        position: initial;
+        gap:175px;
+    }
+}
